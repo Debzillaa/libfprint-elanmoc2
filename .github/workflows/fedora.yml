@@ -1,0 +1,42 @@
+name: Fedora Build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: fedora:44
+
+    steps:
+      - name: Install dependencies
+        run: |
+          dnf -y update
+          dnf -y install \
+            git \
+            rpm-build \
+            rpmdevtools \
+            meson \
+            ninja-build \
+            gcc \
+            gcc-c++ \
+            pkgconf-pkg-config \
+            glib2-devel \
+            libgusb-devel \
+            libusb1-devel \
+            libpixman-devel \
+            nss-devel \
+            libgudev-devel \
+            cairo-devel \
+            libyaml-devel \
+            systemd-devel \
+            python3 \
+            curl
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build RPM
+        run: ./scripts/build-fedora.sh
