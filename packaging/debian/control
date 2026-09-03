@@ -1,0 +1,29 @@
+Source: libfprint-elanmoc2
+Section: libs
+Priority: optional
+Maintainer: libfprint-elanmoc2 contributors
+Build-Depends:
+ debhelper-compat (= 13),
+ meson,
+ ninja-build,
+ libglib2.0-dev,
+ libgusb-dev,
+ libusb-1.0-0-dev,
+ libpixman-1-dev,
+ libnss3-dev,
+ libgudev-1.0-dev,
+ libcairo2-dev,
+ libvala-dev,
+ valac,
+ gobject-introspection
+Standards-Version: 4.6.2
+Homepage: https://gitlab.freedesktop.org/libfprint/libfprint
+
+Package: libfprint-2-2
+Architecture: any
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends}
+Description: libfprint with ELAN Match-on-Chip 2 support
+ libfprint with community support for ELAN Match-on-Chip 2 fingerprint
+ readers, including USB device 04f3:0ca0.

@@ -1,0 +1,38 @@
+pkgname=libfprint-elanmoc2
+pkgver=1.94.100
+pkgrel=1
+pkgdesc="libfprint with ELAN Match-on-Chip 2 support"
+arch=('x86_64')
+url="https://gitlab.freedesktop.org/libfprint/libfprint"
+license=('LGPL-2.1-or-later')
+depends=('glib2' 'libgusb' 'libusb' 'pixman' 'nss' 'libgudev' 'cairo')
+makedepends=('git' 'meson' 'ninja' 'vala' 'gobject-introspection')
+provides=('libfprint')
+conflicts=('libfprint')
+source=(
+  "https://gitlab.freedesktop.org/libfprint/libfprint/-/archive/v${pkgver}/libfprint-v${pkgver}.tar.gz"
+  "0001-add-elanmoc2-04f3-0ca0.patch"
+)
+sha256sums=('SKIP' 'SKIP')
+
+prepare() {
+  cd "libfprint-v${pkgver}"
+  patch -Np1 < "${srcdir}/0001-add-elanmoc2-04f3-0ca0.patch"
+}
+
+build() {
+  cd "libfprint-v${pkgver}"
+
+  meson setup build \
+    --prefix=/usr \
+    --libdir=/usr/lib \
+    -Ddrivers=all \
+    -Dgtk_doc=false
+
+  meson compile -C build
+}
+
+package() {
+  cd "libfprint-v${pkgver}"
+  meson install -C build --destdir "${pkgdir}"
+}

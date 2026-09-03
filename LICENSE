@@ -1,0 +1,12 @@
+GNU LESSER GENERAL PUBLIC LICENSE
+Version 2.1, February 1999
+
+This repository contains packaging, build tooling, and patches for
+libfprint. The included ELAN Match-on-Chip 2 driver code retains its
+original copyright and licensing notices.
+
+The driver code is licensed under the GNU Lesser General Public License,
+version 2.1 or any later version, as indicated in the source files.
+
+For the complete LGPL-2.1 license text, see:
+https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html

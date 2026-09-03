@@ -1,0 +1,5 @@
+libfprint-elanmoc2 (1.94.100-1) unstable; urgency=medium
+
+  * Add ELAN Match-on-Chip 2 support for USB device 04f3:0ca0.
+
+ -- libfprint-elanmoc2 contributors <debian@libfprint-elanmoc2.invalid>  Fri, 04 Sep 2026 00:00:00 +0530
