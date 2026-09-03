@@ -40,3 +40,9 @@ jobs:
 
       - name: Build RPM
         run: ./scripts/build-fedora.sh
+
+      - name: Upload RPMs
+        uses: actions/upload-artifact@v4
+        with:
+          name: fedora-44-rpms
+          path: .rpmbuild/RPMS/x86_64/*.rpm
