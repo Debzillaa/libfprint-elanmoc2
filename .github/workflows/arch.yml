@@ -30,6 +30,13 @@ jobs:
             cairo \
             curl
 
+      - name: Check GLib tools
+        run: |
+          command -v glib-mkenums || true
+          ls -l /usr/bin/glib-mkenums || true
+          pacman -Qo /usr/bin/glib-mkenums || true
+          pacman -Ql glib2 | grep glib-mkenums || true
+
       - name: Checkout
         uses: actions/checkout@v4
 
