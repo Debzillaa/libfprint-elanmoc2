@@ -1,0 +1,43 @@
+name: Arch Build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
+
+    steps:
+      - name: Install dependencies
+        run: |
+          pacman -Syu --noconfirm
+          pacman -S --noconfirm \
+            base-devel \
+            git \
+            meson \
+            ninja \
+            vala \
+            gobject-introspection \
+            glib2 \
+            libgusb \
+            libusb \
+            pixman \
+            nss \
+            libgudev \
+            cairo \
+            curl
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build package
+        run: ./scripts/build-arch.sh
+
+      - name: Upload package
+        uses: actions/upload-artifact@v4
+        with:
+          name: arch-package
+          path: packaging/arch/*.pkg.tar.zst
