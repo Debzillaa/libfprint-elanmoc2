@@ -33,6 +33,13 @@ jobs:
             cairo-devel \
             libyaml-devel \
             systemd-devel \
+            gobject-introspection-devel \
+            gtk-doc \
+            openssl-devel \
+            python3-cairo \
+            python3-gobject \
+            systemd \
+            umockdev \
             python3 \
             curl
 
