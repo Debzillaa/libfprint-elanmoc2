@@ -18,6 +18,7 @@ jobs:
             git \
             rpm-build \
             rpmdevtools \
+              redhat-rpm-config \
             meson \
             ninja-build \
             gcc \
@@ -26,7 +27,7 @@ jobs:
             glib2-devel \
             libgusb-devel \
             libusb1-devel \
-            libpixman-devel \
+            pixman-devel \
             nss-devel \
             libgudev-devel \
             cairo-devel \
